@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phishing-detector
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: phishing-detector
+  template:
+    metadata:
+      labels:
+        app: phishing-detector
+    spec:
+      containers:
+      - name: phishing-detector
+        image: phishing-detector:latest
+        ports:
+        - containerPort: 5000

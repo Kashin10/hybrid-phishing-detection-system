@@ -1,0 +1,6 @@
+version: '3'
+
+services:
+  phishing-detector:
+    build: .
+    container_name: phishing-detector
