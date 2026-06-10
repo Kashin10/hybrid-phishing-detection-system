@@ -1,6 +1,21 @@
-version: '3'
+version: "3.8"
 
 services:
-  phishing-detector:
-    build: .
-    container_name: phishing-detector
+phishing-detector:
+build: .
+container_name: phishing_detector
+
+ports:
+  - "5000:5000"
+
+volumes:
+  - ./app:/app
+  - ./training:/training
+
+restart: unless-stopped
+
+environment:
+  - PYTHONUNBUFFERED=1
+
+command: python app/app.py
+
